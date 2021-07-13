@@ -1,3 +1,6 @@
+import dotenv from 'dotenv';
+
+dotenv.config();
 import express from 'express';
 import mongoose from "mongoose";
 import cors from 'cors';
@@ -9,8 +12,8 @@ import authRoutes from "./routes/auth.js";
 import postRouter from "./routes/post.js";
 import userRouter from "./routes/user.js";
 
-// password-PhFK3sbXy5WZJeG4
-const dbURL = "mongodb+srv://admin:PhFK3sbXy5WZJeG4@cluster0.nduys.mongodb.net/SocialMediaDB?retryWrites=true&w=majority";
+
+const dbURL = process.env.dbURL;
 app.use(express.json())
 app.use(cors());
 mongoose.connect(dbURL, {
